@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Панель администратора — Ателье «Нить»</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="admin">
+    <!-- Боковое меню -->
+    <aside class="side">
+      <div class="side__brand"><b>Ателье «Нить»</b><small>Администратор</small></div>
+      <nav aria-label="Разделы админки">
+        <a class="active" href="#">Сводка</a>
+        <a href="#">Заказы</a>
+        <a href="#">Клиенты</a>
+        <a href="#">Пользователи</a>
+        <a href="#">Прайс-лист</a>
+        <a href="#">Материалы</a>
+        <a href="#">Отчёты</a>
+        <a href="index.html">Выйти</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <h1>Панель администратора</h1>
+
+      <!-- Показатели -->
+      <section class="stats" aria-label="Сводка">
+        <div class="stat"><span>Заказов в работе</span><b id="stat-work">12</b></div>
+        <div class="stat"><span>Выручка за месяц</span><b>186 400 ₽</b></div>
+        <div class="stat"><span>Просрочено</span><b>1</b></div>
+      </section>
+
+      <!-- Заказы -->
+      <section>
+        <div class="bar">
+          <h2>Заказы</h2>
+          <button class="btn" id="new-order">+ Новый заказ</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>№</th><th>Клиент</th><th>Услуга</th><th>Срок</th><th>Исполнитель</th><th>Статус</th></tr></thead>
+            <tbody id="orders">
+              <tr><td>101</td><td>Иванова А.</td><td>Платье</td><td>08.11</td><td>Портной 1</td><td><select data-status><option selected>В работе</option><option>Принят</option><option>Готов к примерке</option><option>Готов к выдаче</option><option>Выдан</option></select></td></tr>
+              <tr><td>102</td><td>Петров С.</td><td>Костюм</td><td>12.11</td><td>Портной 2</td><td><select data-status><option selected>В работе</option><option>Принят</option><option>Готов к примерке</option><option>Готов к выдаче</option><option>Выдан</option></select></td></tr>
+              <tr><td>103</td><td>Сидорова Е.</td><td>Ремонт</td><td>06.11</td><td>Портной 1</td><td><select data-status><option>В работе</option><option>Принят</option><option selected>Готов к примерке</option><option>Готов к выдаче</option><option>Выдан</option></select></td></tr>
+              <tr><td>104</td><td>Кузнецов Д.</td><td>Подгонка</td><td>05.11</td><td>Портной 3</td><td><select data-status><option>В работе</option><option>Принят</option><option>Готов к примерке</option><option selected>Готов к выдаче</option><option>Выдан</option></select></td></tr>
+              <tr><td>105</td><td>Орлова М.</td><td>Платье</td><td>15.11</td><td>Портной 2</td><td><select data-status><option>В работе</option><option selected>Принят</option><option>Готов к примерке</option><option>Готов к выдаче</option><option>Выдан</option></select></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Быстрые разделы -->
+      <section class="shortcuts">
+        <a class="shortcut" href="#">Пользователи и роли</a>
+        <a class="shortcut" href="#">Прайс-лист</a>
+        <a class="shortcut" href="#">Материалы</a>
+        <a class="shortcut" href="#">Отчёты</a>
+      </section>
+    </main>
+  </div>
+
+  <!-- Окно «Новый заказ» -->
+  <dialog id="order-dialog">
+    <h2>Новый заказ</h2>
+    <form method="dialog" id="order-form">
+      <div class="field"><label for="o-client">Клиент</label><input id="o-client" required placeholder="Фамилия И."></div>
+      <div class="field"><label for="o-service">Услуга</label>
+        <select id="o-service" style="width:100%"><option>Платье</option><option>Костюм</option><option>Ремонт</option><option>Подгонка</option></select></div>
+      <div class="field"><label for="o-date">Срок (дд.мм)</label><input id="o-date" required placeholder="20.11"></div>
+      <div class="field"><label for="o-worker">Исполнитель</label>
+        <select id="o-worker" style="width:100%"><option>Портной 1</option><option>Портной 2</option><option>Портной 3</option></select></div>
+      <div class="dialog__actions">
+        <button class="btn btn--ghost" type="button" id="o-cancel">Отмена</button>
+        <button class="btn" type="submit">Создать</button>
+      </div>
+    </form>
+  </dialog>
+  <script src="js/main.js"></script>
+</body>
+</html>

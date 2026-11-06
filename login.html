@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Вход — Ателье «Нить»</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="index.html">Ателье «Нить»</a>
+      <a class="back-link" href="index.html">← На главную</a>
+    </div>
+  </header>
+
+  <main class="auth">
+    <section class="auth__card">
+      <h1>Вход</h1>
+      <p class="notice" id="notice" hidden></p>
+      <form id="login-form" novalidate>
+        <div class="field">
+          <label for="email">E-mail</label>
+          <input id="email" type="email" placeholder="name@mail.ru" autocomplete="email" required>
+          <div class="error" data-error></div>
+        </div>
+        <div class="field">
+          <label for="password">Пароль</label>
+          <input id="password" type="password" placeholder="••••••••" autocomplete="current-password" required>
+          <div class="error" data-error></div>
+        </div>
+        <p style="margin-bottom:18px"><a class="link" href="#" id="forgot">Забыли пароль?</a></p>
+        <button class="btn btn--block" type="submit">Войти</button>
+      </form>
+      <p class="auth__alt">Нет аккаунта? <a href="register.html">Зарегистрироваться</a></p>
+    </section>
+  </main>
+  <script src="js/main.js"></script>
+</body>
+</html>
